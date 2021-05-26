@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+{{ parent() }} - Les derniers ajouts dans cette catégorie
+{% endblock %}
+{% block body %}
+    {% for program in programs %}
+    <div>
+        <h2>Série #{{ program.id }} - <a href="{{ path("program_show", {id: program.id }) }}">{{ program.title }}</a></h2>
+        <p>{{ program.summary }}</p>
+    </div>
+        {% else %}
+        Aucune série trouvée
+    {% endfor %}
+    <a href="{{ path("category_index") }}">
+        Retour à la liste des catégories
+    </a>
+{% endblock %}
