@@ -7,7 +7,11 @@
 <p>{{ season.description }}</p>
 <h3>Liste des épisodes :</h3>
 {% for episode in season.episodes %}
-    <li>Episode {{ episode.number }}: {{ episode.title }}</li>
+    <div class="card" style="width: 18rem;">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Episode {{ episode.number }}: {{ episode.title }}</li>
+        </ul>
+    </div>
 {% endfor %}
     <a href="{{ path("program_show", {id: program.id }) }}">Retour à la fiche de {{ program.title }}</a>
 {% endblock %}
