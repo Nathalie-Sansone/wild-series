@@ -10,12 +10,14 @@
             <p class="card-text">{{ program.summary }}</p>
             {% for season in seasons %}
                 <a href="{{ path('program_season_show', {'program': program.id, 'season': season.id }) }}"><p>Saison #{{ season.number }}</p></a>
+                {% else %}
+                <p>Aucune saison trouvée</p>
             {% endfor %}
             <a href="{{ path('category_index') }}" class="btn btn-primary">Catégorie : {{ program.category.name }}</a>
         </div>
     </div>
     <a href="{{ path('program_index') }}">
-        Retour à la liste des programmes
+        Retour à la liste des séries
     </a>
 
 {% endblock %}
