@@ -8,7 +8,7 @@
         <div class="card-body">
             <h5 class="card-title">{{ program.title }}</h5>
             <p class="card-text">{{ program.summary }}</p>
-            {% for season in seasons %}
+            {% for season in program.seasons %}
                 <a href="{{ path('program_season_show', {'program': program.id, 'season': season.id }) }}"><p>Saison #{{ season.number }}</p></a>
                 {% else %}
                 <p>Aucune saison trouvée</p>
