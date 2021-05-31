@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    {{ parent() }} - All actors
+{% endblock %}
+{% block body %}
+    <h1>Tous les acteurs de la table actor :</h1>
+    {% for actor in actors %}
+        <div class="card" style="width: 18rem;">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{ loop.index }} - Acteur : <a href="{{ path("actor_show", {'actor': actor.id}) }}">{{ actor.name }}</a></li>
+            </ul>
+        </div>
+    {% else %}
+        Aucun.e acteur/actrice trouvé.e
+    {% endfor %}
+    <a href="{{ path('app_index') }}">
+        Retour à l'accueil
+    </a>
+{% endblock %}
