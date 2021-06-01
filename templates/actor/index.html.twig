@@ -7,7 +7,7 @@
     {% for actor in actors %}
         <div class="card" style="width: 18rem;">
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">{{ loop.index }} - Acteur : <a href="{{ path("actor_show", {'actor': actor.id}) }}">{{ actor.name }}</a></li>
+                <li class="list-group-item">{{ loop.index }} - Acteur : <a href="{{ path("actor_show", {'id': actor.id}) }}">{{ actor.name }}</a></li>
             </ul>
         </div>
     {% else %}

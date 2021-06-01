@@ -24,7 +24,7 @@ class ActorController extends AbstractController
     }
 
     /**
-     * @Route("/{actor}", name="show", methods={"GET"})
+     * @Route("/{id}", requirements={"id"="\d+"}, name="show", methods={"GET"})
      */
     public function show(Actor $actor): Response
     {
