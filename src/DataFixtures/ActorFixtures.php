@@ -16,7 +16,9 @@ class ActorFixtures extends Fixture
         'Kate Winslet',
         'Evan Peters',
         'Elizabeth Olsen',
-        'Steve Carell'
+        'Steve Carell',
+        'Robert Sheehan',
+        'Aidan Gallagher'
     ];
 
     public function load(ObjectManager $manager)
