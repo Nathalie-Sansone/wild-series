@@ -9,5 +9,5 @@
             <h5 class="card-title">Résumé:</h5>
             <p>{{ episode.synopsis }}</p>
         </div>
-    <a href="{{ path("program_season_show", {'program': program.id, 'season': season.id }) }}">Retour à la liste des épisodes</a>
+    <a href="{{ path("program_season_show", {'slug': program.slug, 'season': season.id }) }}">Retour à la liste des épisodes</a>
 {% endblock %}
