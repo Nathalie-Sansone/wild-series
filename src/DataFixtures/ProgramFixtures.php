@@ -30,6 +30,7 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
         $program1->addActor($this->getReference('actor_1'));
         $program1->addActor($this->getReference('actor_2'));
         $program1->addActor($this->getReference('actor_3'));
+        $program1->setOwner($this->getReference('contributor'));
         $this->addReference('program_1', $program1);
         $slug = $this->slugify->generate($program1->getTitle());
         $program1->setSlug($slug);
@@ -44,6 +45,7 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
         $program2->setCategory($this->getReference('category_5'));
         $program2->addActor($this->getReference('actor_4'));
         $program2->addActor($this->getReference('actor_5'));
+        $program2->setOwner($this->getReference('contributor'));
         $this->addReference('program_2', $program2);
         $slug = $this->slugify->generate($program2->getTitle());
         $program2->setSlug($slug);
@@ -58,6 +60,7 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
         $program3->setCategory($this->getReference('category_3'));
         $program3->addActor($this->getReference('actor_5'));
         $program3->addActor($this->getReference('actor_6'));
+        $program3->setOwner($this->getReference('contributor'));
         $this->addReference('program_3', $program3);
         $slug = $this->slugify->generate($program3->getTitle());
         $program3->setSlug($slug);
@@ -71,6 +74,7 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
         $program4->setPoster('https://fr.web.img6.acsta.net/r_1920_1080/pictures/20/03/11/13/46/2921127.jpg');
         $program4->setCategory($this->getReference('category_4'));
         $program4->addActor($this->getReference('actor_5'));
+        $program4->setOwner($this->getReference('contributor'));
         $this->addReference('program_4', $program4);
         $slug = $this->slugify->generate($program4->getTitle());
         $program4->setSlug($slug);
@@ -84,6 +88,7 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
         $program5->setPoster('https://fr.web.img6.acsta.net/r_1920_1080/pictures/14/02/04/13/20/128334.jpg');
         $program5->setCategory($this->getReference('category_6'));
         $program5->addActor($this->getReference('actor_7'));
+        $program5->setOwner($this->getReference('contributor'));
         $this->addReference('program_5', $program5);
         $slug = $this->slugify->generate($program5->getTitle());
         $program5->setSlug($slug);
@@ -97,6 +102,7 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
         return [
             ActorFixtures::class,
             CategoryFixtures::class,
+            UserFixtures::class,
         ];
     }
 }
