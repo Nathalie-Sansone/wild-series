@@ -11,6 +11,7 @@ use App\Entity\Season;
 use App\Form\CommentType;
 use App\Form\ProgramType;
 use App\Repository\CommentRepository;
+use App\Repository\ProgramRepository;
 use App\Service\Slugify;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -70,6 +71,26 @@ class ProgramController extends AbstractController
             return $this->redirectToRoute('program_index');
         }
         return $this->render('program/new.html.twig', ["form" => $form->createView()]);
+    }
+
+    /**
+     * @Route("/{id}/watchlist", name="watchlist", methods={"GET", "POST"})
+     * @return Response
+     */
+
+    public function addToWatchlist(Program $program, EntityManagerInterface $entityManager)
+    {
+        if ($this->getUser()->getWatchlist()->contains($program)) {
+            $this->getUser()->removeWatchlist($program);
+        } else {
+            $this->getUser()->addWatchlist($program);
+        }
+
+        $entityManager->flush();
+
+        return $this->json([
+            'isInWatchlist' => $this->getUser()->isInWatchlist($program),
+        ]);
     }
 
     /**

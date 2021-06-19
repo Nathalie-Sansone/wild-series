@@ -2,7 +2,17 @@ $light: #cee1f4;
 $navbar-light-color: #fbcd59;
 
 @import "~bootstrap/scss/bootstrap";
+$fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/brands';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/brands';
 
-body {
+html, body {
     background-color: whitesmoke;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
 }
+

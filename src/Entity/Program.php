@@ -77,6 +77,12 @@ class Program
      */
     private $owner;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="watchlist")
+     */
+
+    private $viewers;
+
     public function __construct()
     {
         $this->seasons = new ArrayCollection();

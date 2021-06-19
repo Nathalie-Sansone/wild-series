@@ -3,24 +3,28 @@
 
 namespace App\Controller;
 
+use App\Repository\ProgramRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends AbstractController
 {
+     public const MAX_LAST_INSERT = 3;
 
     /**
-
      * @Route("/", name="app_index")
-
      */
 
-    public function index(): Response
-
+    public function index(ProgramRepository $programRepository): Response
     {
-
-        return $this->render('index.html.twig');
-
+        $programs = $programRepository->findBy(
+            [],
+            ['id' => 'DESC'],
+            self::MAX_LAST_INSERT
+        );
+        return $this->render('index.html.twig', [
+            'programs' => $programs
+        ]);
     }
 }

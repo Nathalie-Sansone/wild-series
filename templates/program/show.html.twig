@@ -22,6 +22,11 @@
                 {% endfor %}
             </ul>
             <a href="{{ path('category_index') }}" class="btn btn-primary">Catégorie : {{ program.category.name }}</a>
+            {% if app.user %}
+                <a id="watchlist" href="{{ path('program_watchlist', {id: program.id})}}">
+                <i class="bi {{ app.user.isInWatchlist(program) ? 'bi-heart-fill' : 'bi-heart' }}"></i>
+            </a>
+            {% endif %}
         </div>
     </div>
     {% if is_granted("ROLE_ADMIN") or is_granted("ROLE_CONTRIBUTOR") %}

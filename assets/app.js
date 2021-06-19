@@ -10,5 +10,5 @@ import './styles/app.scss';
 
 // start the Stimulus application
 import './bootstrap';
-
-console.log('Hello Webpack Encore !')
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import './watchlist';
