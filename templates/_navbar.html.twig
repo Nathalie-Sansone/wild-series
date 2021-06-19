@@ -10,11 +10,9 @@
             <a class="nav-item nav-link" href="{{ path('category_index') }}"><i class="fas fa-search"></i> Catégories</a>
             <a class="nav-item nav-link" href="{{ path('actor_index') }}"><i class="fas fa-users"></i> Casting</a>
             <a class="nav-item nav-link" href="#"><i class="far fa-heart"></i> Mes favoris</a>
+            <a class="nav-item nav-link" href="{{ (app.user) ? path('my-profile') : path('app_login') }}"><i class="far fa-address-card"></i>{{ (app.user) ? " Mon compte" : " Se connecter" }}</a>
             {% if app.user %}
-                {{ app.user.email }}
                 <a class="nav-item nav-link" href="{{ path('app_logout') }}"> Se déconnecter</a>
-            {% else %}
-                <a class="nav-item nav-link" href="{{ path('app_login') }}"><i class="far fa-address-card"></i> Se connecter</a>
             {% endif %}
         </div>
     </div>
