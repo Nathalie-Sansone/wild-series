@@ -3,9 +3,17 @@
     {{ parent() }} - All programs
 {% endblock %}
 {% block body %}
-<h1>Toutes les séries de la table program :</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+<h1 class="mt-5">Toutes les séries :</h1>
+    {% form_theme form 'bootstrap_4_layout.html.twig' %}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button>Search</button>
+    {{ form_end(form) }}
 {% for program in programs %}
-<div class="card">
+<div class="card mt-5">
     <div class="card-body">
         <h5 class="card-title">{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h5>
         <p class="card-text">{{ program.summary }}</p>
@@ -20,4 +28,7 @@
     <a href="{{ path('app_index') }}">
         Retour à l'accueil
     </a>
+        </div>
+        </div>
+    </div>
 {% endblock %}
