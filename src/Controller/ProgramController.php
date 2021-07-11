@@ -75,6 +75,7 @@ class ProgramController extends AbstractController
 
             $mailer->send($email);
 
+            $this->addFlash('success', 'The new program has been created');
             return $this->redirectToRoute('program_index');
         }
         return $this->render('program/new.html.twig', ["form" => $form->createView()]);
@@ -137,6 +138,7 @@ class ProgramController extends AbstractController
             $program->setSlug($slug);
             $entityManager->flush();
 
+            $this->addFlash('success', 'The program has been updated');
             return $this->redirectToRoute('program_index');
         }
 
