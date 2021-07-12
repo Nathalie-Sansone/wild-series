@@ -1,4 +1,8 @@
 {% extends 'base.html.twig' %}
+ {% block javascripts %}
+     {{ parent() }}
+     {{ encore_entry_script_tags('watch') }}
+ {% endblock %}
 {% block title %}
     {{ parent() }} - Série #{{ program.id }}
 {% endblock %}
